@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -41,5 +42,11 @@ typedef struct instruction_s
 int main(int ac, char *av[]);
 void open_the_file(char *f_name);
 void read_line(FILE *file_d);
+/*split_line.c*/
+char **split_line(char *line );
+/*free.c*/
+void free_arr(char **arr);
+/*str_fun.c*/
+char *_strdup(char *src , char **arr);
 
 #endif

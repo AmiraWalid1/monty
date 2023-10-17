@@ -13,7 +13,7 @@ int main(int ac, char *av[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	read_line(av[1]);
+	open_the_file(av[1]);
 	return (0);
 }
 
@@ -23,12 +23,12 @@ int main(int ac, char *av[])
  */
 void open_the_file(char *f_name)
 {
-	FILE *file_d = fopen(file_name, "r");
+	FILE *file_d = fopen(f_name, "r");
 
-        if (file_name == NULL || file_d == NULL)
-        {
-                fprintf(stderr, "Error: Can't open file %s\n", file_name);
-                exit(EXIT_FAILURE);
+	if (f_name == NULL || file_d == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", f_name);
+		exit(EXIT_FAILURE);
 	}
 	read_line(file_d);
 	fclose(file_d);
@@ -45,9 +45,9 @@ void read_line(FILE *file_d)
 	char *buff = NULL;
 	size_t length = 0;
 
-	for (line == 1; getline(&buff, &length, file_d) != -1; line++)
+	for (line = 1; getline(&buff, &length, file_d) != -1 ; line++)
 	{
-		/* parse line */
+		split_line(buff);
 	}
 	free(buff);
 }
