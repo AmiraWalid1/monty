@@ -47,6 +47,6 @@ char **split_line(char *line );
 /*free.c*/
 void free_arr(char **arr);
 /*str_fun.c*/
-char *_strdup(char *src , char **arr);
+char *_strdup(char *src);
 
 #endif

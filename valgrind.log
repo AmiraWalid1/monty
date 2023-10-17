@@ -1,0 +1,15 @@
+==18128== Memcheck, a memory error detector
+==18128== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==18128== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==18128== Command: ./monty bytecodes/000.m
+==18128== Parent PID: 16073
+==18128== 
+==18128== 
+==18128== HEAP SUMMARY:
+==18128==     in use at exit: 0 bytes in 0 blocks
+==18128==   total heap usage: 47 allocs, 47 frees, 6,207 bytes allocated
+==18128== 
+==18128== All heap blocks were freed -- no leaks are possible
+==18128== 
+==18128== For lists of detected and suppressed errors, rerun with: -s
+==18128== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

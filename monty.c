@@ -42,12 +42,13 @@ void open_the_file(char *f_name)
 void read_line(FILE *file_d)
 {
 	int line;
-	char *buff = NULL;
+	char *buff = NULL, **arr;
 	size_t length = 0;
 
 	for (line = 1; getline(&buff, &length, file_d) != -1 ; line++)
 	{
-		split_line(buff);
+		arr = split_line(buff);
+		free_arr(arr);
 	}
 	free(buff);
 }
