@@ -37,4 +37,9 @@ typedef struct instruction_s
 } instruction_t;
 
 
+/* monty.c */
+int main(int ac, char *av[]);
+void open_the_file(char *f_name);
+void read_line(FILE *file_d);
+
 #endif
