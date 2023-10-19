@@ -1,5 +1,5 @@
 #include "monty.h"
-global_variable_t global_variable;
+global_variable_t global_variable; 
 /**
  * main - Entry point
  * @ac: arguments counter
@@ -8,6 +8,7 @@ global_variable_t global_variable;
  */
 int main(int ac, char *av[])
 {
+	FILE *file_d;
 	unsigned int line_number;
 	char *buff = NULL;
 	size_t length = 0;
@@ -19,15 +20,15 @@ int main(int ac, char *av[])
 		exit(EXIT_FAILURE);
 	}
 	/*open file*/
-	global_variable.fd = fopen(av[1], "r");
-	if (global_variable.fd == NULL)
+	file_d = fopen(av[1], "r");
+	if (file_d == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	
+	global_variable.fd = file_d;
 	/*read line by line from file*/
-	for (line_number = 1; getline(&buff, &length, global_variable.fd) != -1 ; line_number++)
+	for (line_number = 1; getline(&buff, &length, file_d) != -1 ; line_number++)
 	{
 		global_variable.buff = buff;
 		if (_is_empty(buff))
@@ -39,6 +40,6 @@ int main(int ac, char *av[])
 	free(buff);
 	free_stack(&global_variable.S_top);
 	/*close file*/
-	fclose(global_variable.fd);
+	fclose(file_d);
 	return (0);
 }
