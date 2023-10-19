@@ -47,6 +47,7 @@ void read_line(FILE *file_d);
 char **split_line(char *line);
 /*free.c*/
 void free_arr(char **arr);
+void free_stack(stack_t **stack);
 /*str_fun.c*/
 char *_strdup(char *src);
 

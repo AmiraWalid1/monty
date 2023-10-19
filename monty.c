@@ -36,6 +36,7 @@ int main(int ac, char *av[])
 		free_arr(arr);
 	}
 	free(buff);
+	free_stack(&S_top);
 	/*close file*/
 	fclose(file_d);
 	return (0);
