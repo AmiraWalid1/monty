@@ -35,7 +35,7 @@ void swap_the_top(stack_t **stack, unsigned int line_number)
  */
 void S_add(stack_t **stack, unsigned int line_number)
 {
-	int add;
+	stack_t *top;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
@@ -44,11 +44,11 @@ void S_add(stack_t **stack, unsigned int line_number)
 		free(global_variable.arr);
 		exit(EXIT_FAILURE);
 	}
-	(*stack) = (*stack)->next;
-	add = (*stack)->n + (*stack)->prev->n;
-	(*stack)->n = add;
-	free((*stack)->prev);
+	top = *stack;
+	*stack = (*stack)->next;
+	(*stack)->n += top->n;
 	(*stack)->prev = NULL;
+	free(top);
 }
 
 /**
