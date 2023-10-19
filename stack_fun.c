@@ -45,7 +45,7 @@ void S_pall(stack_t **stack, unsigned int line_number)
 	if (!stack)
 		exit(EXIT_FAILURE);
 	curr = *stack;
-	while (curr)
+	while (curr != NULL)
 	{
 		printf("%d\n", curr->n);
 		curr = curr->next;
