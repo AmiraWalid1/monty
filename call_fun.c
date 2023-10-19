@@ -14,7 +14,8 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 		{"pint", S_pint},
 		{"swap", swap_the_top},
 		{"add", S_add},
-		{"nop", S_nop}	
+		{"nop", S_nop},
+		{NULL, NULL}
 	};
 	sz_list_fun = sizeof(list_fun) / sizeof(list_fun[0]);
 	for (idx = 0 ; idx < sz_list_fun ; idx++)
