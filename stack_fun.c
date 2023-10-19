@@ -15,9 +15,9 @@ void S_push(stack_t **stack, unsigned int line_number)
 	if (!global_variable.arr[1] || _is_integer(global_variable.arr[1]) == 0)
 	{
 		fprintf(stderr, "L<%u>: usage: push integer\n", line_number);
+		free(global_variable.buff);
 		free_arr(global_variable.arr);
 		free_stack(stack);
-		free(global_variable.buff);
 		fclose(global_variable.fd);
 		exit(EXIT_FAILURE);
 	}
@@ -25,9 +25,9 @@ void S_push(stack_t **stack, unsigned int line_number)
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free(global_variable.buff);
 		free_arr(global_variable.arr);
 		free_stack(stack);
-		free(global_variable.buff);
 		fclose(global_variable.fd);
 		exit(EXIT_FAILURE);
 	}
@@ -72,9 +72,9 @@ void S_pint(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L<%u>: can't pint, stack empty\n", line_number);
+		free(global_variable.buff);
 		free_arr(global_variable.arr);
 		free_stack(stack);
-		free(global_variable.buff);
 		fclose(global_variable.fd);
 		exit(EXIT_FAILURE);
 	}
