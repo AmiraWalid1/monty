@@ -27,7 +27,7 @@ void swap_the_top(stack_t **stack, unsigned int line_number)
 
 /**
  * S_add - function that adds the top two elements of the stack
- * * @stack: pointer to top node of the stack
+ * @stack: pointer to top node of the stack
  * @line_number: line number
  * Return: void
  */
@@ -45,4 +45,16 @@ void S_add(stack_t **stack, unsigned int line_number)
 	(*stack)->n = add;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
+}
+
+/**
+ * S_nop - function doesn’t do anything
+ * @stack: pointer to top node of the stack
+ * @line_number: line number
+ * Return: void
+ */
+void S_nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
