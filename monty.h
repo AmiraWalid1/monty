@@ -43,7 +43,7 @@ typedef struct global_variable_s
 	char **arr;
 	stack_t *S_top;
 	FILE *fd;
-}global_variable_t;
+} global_variable_t;
 
 extern global_variable_t global_variable;
 
@@ -68,5 +68,6 @@ int _is_empty(char *str);
 void swap_the_top(stack_t **stack, unsigned int line_number);
 void S_add(stack_t **stack, unsigned int line_number);
 void S_nop(stack_t **stack, unsigned int line_number);
-
+void S_pop(stack_t **stack, unsigned int line_number);
+void _free_global_variable(void);
 #endif

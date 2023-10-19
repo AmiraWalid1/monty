@@ -12,23 +12,19 @@ void S_push(stack_t **stack, unsigned int line_number)
 
 	if (!stack)
 		return;
-	if (!global_variable.arr[1] || _is_integer(global_variable.arr[1]) == 0)
+	if (global_variable.arr[1] == NULL || _is_integer(global_variable.arr[1]) == 0)
 	{
-		fprintf(stderr, "L<%u>: usage: push integer\n", line_number);
-		free(global_variable.buff);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_arr(global_variable.arr);
-		free_stack(stack);
-		fclose(global_variable.fd);
+		_free_global_variable();
 		exit(EXIT_FAILURE);
 	}
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free(global_variable.buff);
 		free_arr(global_variable.arr);
-		free_stack(stack);
-		fclose(global_variable.fd);
+		_free_global_variable();
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = atoi(global_variable.arr[1]);
@@ -50,7 +46,7 @@ void S_pall(stack_t **stack, unsigned int line_number)
 	stack_t *curr;
 
 	(void) line_number;
-	if (!stack)
+	if (!stack || *stack == NULL)
 		return;
 	curr = *stack;
 	while (curr != NULL)
@@ -67,18 +63,36 @@ void S_pall(stack_t **stack, unsigned int line_number)
 */
 void S_pint(stack_t **stack, unsigned int line_number)
 {
-	if (stack == NULL)
-		return;
-	if (*stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L<%u>: can't pint, stack empty\n", line_number);
-		free(global_variable.buff);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		free_arr(global_variable.arr);
-		free_stack(stack);
-		fclose(global_variable.fd);
+		_free_global_variable();
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
+}
+/**
+ * S_pop - removes the top element of the stack.
+ * @stack: pointer to pointer to top of stack.
+ * @line_number: number of line is excecuted.
+ * Return: void.
+*/
+void S_pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top;
 
+	if (!stack || *stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		free_arr(global_variable.arr);
+		_free_global_variable();
+		exit(EXIT_FAILURE);
+	}
+	top = *stack;
+	*stack = (*stack)->next;
+	if (*stack)
+		(*stack)->prev = NULL;
+	free(top);
 }
 

@@ -7,7 +7,7 @@
 */
 char **split_line(char *line)
 {
-	char *copy_line, *word_token, **argv;
+	char *copy_line, *word_token;
 	const char *delim = "\n ";
 	int sz_arr = 0, idx;
 
@@ -21,34 +21,30 @@ char **split_line(char *line)
 	sz_arr++;
 	free(copy_line);
 	copy_line = _strdup(line);
-	argv = malloc(sizeof(char *) * sz_arr);
-	if (!argv)
+	global_variable.arr = malloc(sizeof(char *) * sz_arr);
+	if (!global_variable.arr)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free(copy_line);
-		free(global_variable.buff);
-		free_stack(&global_variable.S_top);
-		fclose(global_variable.fd);
+		_free_global_variable();
 		exit(EXIT_FAILURE);
 	}
 	word_token = strtok(copy_line, delim);
 	for (idx = 0; idx < 2 && word_token ; idx++)
 	{
-		argv[idx] = malloc(sizeof(char) * (strlen(word_token) + 1));
-		if (!argv[idx])
+		global_variable.arr[idx] = malloc(sizeof(char) * (strlen(word_token) + 1));
+		if (!global_variable.arr[idx])
 		{
 			fprintf(stderr, "Error: malloc failed\n");
 			free(copy_line);
-			free_arr(argv);
-			free(global_variable.buff);
-			free_stack(&global_variable.S_top);
-			fclose(global_variable.fd);
+			free_arr(global_variable.arr);
+			_free_global_variable();
 			exit(EXIT_FAILURE);
 		}
-		strcpy(argv[idx], word_token);
+		strcpy(global_variable.arr[idx], word_token);
 		word_token = strtok(NULL, delim);
 	}
-	argv[idx] = NULL;
+	global_variable.arr[idx] = NULL;
 	free(copy_line);
-	return (argv);
+	return (global_variable.arr);
 }
