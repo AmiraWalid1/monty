@@ -16,7 +16,7 @@ char *_strdup(char *src)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free(global_variable.buff);
-		free_stack(global_variable.S_top);
+		free_stack(&global_variable.S_top);
 		fclose(global_variable.fd);
 		exit(EXIT_FAILURE);
 	}
