@@ -11,7 +11,8 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 	instruction_t list_fun[] = {
 		{"push", S_push},
 		{"pall", S_pall},
-		{"pint", S_pint}
+		{"pint", S_pint},
+		{"swap", swap_the_top} 
 	};
 	sz_list_fun = sizeof(list_fun) / sizeof(list_fun[0]);
 	for (idx = 0 ; idx < sz_list_fun ; idx++)
