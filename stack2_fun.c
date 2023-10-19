@@ -50,15 +50,3 @@ void S_add(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 	free(top);
 }
-
-/**
- * S_nop - function doesn’t do anything
- * @stack: pointer to top node of the stack
- * @line_number: line number
- * Return: void
- */
-void S_nop(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-}

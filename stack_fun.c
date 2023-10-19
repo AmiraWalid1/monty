@@ -12,7 +12,7 @@ void S_push(stack_t **stack, unsigned int line_number)
 
 	if (!stack)
 		return;
-	if (global_variable.arr[1] == NULL || _is_integer(global_variable.arr[1]) == 0)
+	if (!global_variable.arr[1] || _is_integer(global_variable.arr[1]) == 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_arr(global_variable.arr);
@@ -96,3 +96,14 @@ void S_pop(stack_t **stack, unsigned int line_number)
 	free(top);
 }
 
+/**
+ * S_nop - function doesn’t do anything
+ * @stack: pointer to top node of the stack
+ * @line_number: line number
+ * Return: void
+ */
+void S_nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}

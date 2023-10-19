@@ -37,6 +37,15 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct global_variable_s - global variables.
+ * @buff: buffer that will use to read lines.
+ * @arr: arr that will conatain line will be readed after split.
+ * @S_top: top of stack.
+ * @fd: file descripter of given file.
+ *
+ * Description: global variables.
+*/
 typedef struct global_variable_s
 {
 	char *buff;

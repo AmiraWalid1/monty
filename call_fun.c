@@ -26,7 +26,8 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 			return;
 		}
 	}
-	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, global_variable.arr[0]);
+	fprintf(stderr, "L%u: unknown instruction %s\n"
+	, line_number, global_variable.arr[0]);
 	_free_global_variable();
 	free(global_variable.arr);
 	exit(EXIT_FAILURE);
