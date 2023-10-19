@@ -46,7 +46,7 @@ void S_pall(stack_t **stack, unsigned int line_number)
 	stack_t *curr;
 
 	(void) line_number;
-	if (!stack)
+	if (!stack || *stack == NULL)
 		return;
 	curr = *stack;
 	while (curr != NULL)
@@ -63,9 +63,7 @@ void S_pall(stack_t **stack, unsigned int line_number)
 */
 void S_pint(stack_t **stack, unsigned int line_number)
 {
-	if (stack == NULL)
-		return;
-	if (*stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "L<%u>: can't pint, stack empty\n", line_number);
 		free_arr(global_variable.arr);
@@ -73,7 +71,6 @@ void S_pint(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
-
 }
 /**
  * S_pop - removes the top element of the stack.

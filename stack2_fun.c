@@ -12,7 +12,9 @@ void swap_the_top(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		_free_global_variable();
+		free(global_variable.arr);
 		exit(EXIT_FAILURE);
 	}
 	curr = (*stack)->next;
@@ -37,7 +39,9 @@ void S_add(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		_free_global_variable();
+		free(global_variable.arr);
 		exit(EXIT_FAILURE);
 	}
 	(*stack) = (*stack)->next;

@@ -26,7 +26,7 @@ void free_stack(stack_t **stack)
 {
 	stack_t *curr, *freed_node;
 
-	if (!stack)
+	if (!stack || *stack == NULL)
 		return;
 	curr = *stack;
 	while (curr)

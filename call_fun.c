@@ -16,7 +16,6 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 		{"swap", swap_the_top},
 		{"add", S_add},
 		{"nop", S_nop},
-		{NULL, NULL}
 	};
 	sz_list_fun = sizeof(list_fun) / sizeof(list_fun[0]);
 	for (idx = 0 ; idx < sz_list_fun ; idx++)
@@ -27,4 +26,8 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 			return;
 		}
 	}
+	fprintf(stderr, "L<%u>: unknown instruction <%s>\n", line_number, global_variable.arr[0]);
+	_free_global_variable();
+	free(global_variable.arr);
+	exit(EXIT_FAILURE);
 }
