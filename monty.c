@@ -1,5 +1,5 @@
 #include "monty.h"
-global_variable_t global_variable; 
+global_variable_t global_variable;
 /**
  * main - Entry point
  * @ac: arguments counter
