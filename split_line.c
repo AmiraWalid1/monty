@@ -24,8 +24,11 @@ char **split_line(char *line)
 	argv = malloc(sizeof(char *) * sz_arr);
 	if (!argv)
 	{
-		free(copy_line);
 		fprintf(stderr, "Error: malloc failed\n");
+		free(copy_line);
+		free(global_variable.buff);
+		free_stack(&global_variable.S_top);
+		fclose(global_variable.fd);
 		exit(EXIT_FAILURE);
 	}
 	word_token = strtok(copy_line, delim);
@@ -34,9 +37,12 @@ char **split_line(char *line)
 		argv[idx] = malloc(sizeof(char) * (strlen(word_token) + 1));
 		if (!argv[idx])
 		{
+			fprintf(stderr, "Error: malloc failed\n");
 			free(copy_line);
 			free_arr(argv);
-			fprintf(stderr, "Error: malloc failed\n");
+			free(global_variable.buff);
+			free_stack(&global_variable.S_top);
+			fclose(global_variable.fd);
 			exit(EXIT_FAILURE);
 		}
 		strcpy(argv[idx], word_token);
