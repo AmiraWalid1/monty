@@ -12,6 +12,7 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 		{"push", S_push},
 		{"pall", S_pall},
 		{"pint", S_pint},
+		{"pop", S_pop},
 		{"swap", swap_the_top},
 		{"add", S_add},
 		{"nop", S_nop},

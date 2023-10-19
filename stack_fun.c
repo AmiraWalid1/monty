@@ -81,4 +81,25 @@ void S_pint(stack_t **stack, unsigned int line_number)
 	printf("%d\n", (*stack)->n);
 
 }
+/**
+ * S_pop - removes the top element of the stack.
+ * @stack: pointer to pointer to top of stack.
+ * @line_number: number of line is excecuted.
+ * Return: void.
+*/
+void S_pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top;
+
+	if (!stack || *stack == NULL)
+	{
+		fprintf(stderr, "L<%u>: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	top = *stack;
+	*stack = (*stack)->next;
+	if (*stack)
+		(*stack)->prev = NULL;
+	free(top);
+}
 
