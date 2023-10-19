@@ -81,4 +81,5 @@ void S_pop(stack_t **stack, unsigned int line_number);
 void _free_global_variable(void);
 void S_sub(stack_t **stack, unsigned int line_number);
 void S_div(stack_t **stack, unsigned int line_number);
+void S_mul(stack_t **stack, unsigned int line_number);
 #endif
