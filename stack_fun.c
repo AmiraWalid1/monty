@@ -14,7 +14,7 @@ void S_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	if (!arr[1] || _is_integer(arr[1]) == 0)
 	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+		fprintf(stderr, "L<%u>: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	new_node = malloc(sizeof(stack_t));
@@ -37,16 +37,36 @@ void S_push(stack_t **stack, unsigned int line_number)
  * @line_number: number of line is excecuted.
  * Return: void.
 */
-void S_pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
+void S_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *curr;
 
+	(void) line_number;
 	if (!stack)
 		exit(EXIT_FAILURE);
 	curr = *stack;
 	while (curr)
 	{
-		fprintf(stdout, "%d\n", curr->n);
+		printf("%d\n", curr->n);
 		curr = curr->next;
 	}
 }
+/**
+ * S_pint - prints the value at the top of the stack, followed by a new line.
+ * @stack: pointer to pointer to top of stack.
+ * @line_number: number of line is excecuted.
+ * Return: void.
+*/
+void S_pint(stack_t **stack, unsigned int line_number)
+{
+	if (stack == NULL)
+		exit(EXIT_FAILURE);
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L<%u>: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+
+}
+

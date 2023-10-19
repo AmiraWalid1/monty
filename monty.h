@@ -53,5 +53,6 @@ char *_strdup(char *src);
 void call_fun(stack_t **S_top, unsigned int line_number);
 void S_push(stack_t **stack, unsigned int line_number);
 void S_pall(stack_t **stack, unsigned int line_number);
+void S_pint(stack_t **stack, unsigned int line_number);
 int _is_integer(char *str);
 #endif
