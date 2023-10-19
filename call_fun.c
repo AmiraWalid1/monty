@@ -18,7 +18,8 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 		{"nop", S_nop},
 		{"sub", S_sub},
 		{"div", S_div},
-		{"mul", S_mul}
+		{"mul", S_mul},
+		{"mod", S_mod}
 	};
 	sz_list_fun = sizeof(list_fun) / sizeof(list_fun[0]);
 	for (idx = 0 ; idx < sz_list_fun ; idx++)
