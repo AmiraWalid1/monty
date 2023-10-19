@@ -8,7 +8,7 @@
 char **split_line(char *line)
 {
 	char *copy_line, *word_token, **argv;
-	const char *delim = " \n";
+	const char *delim = "\n ";
 	int sz_arr = 0, idx;
 
 	copy_line = _strdup(line);
