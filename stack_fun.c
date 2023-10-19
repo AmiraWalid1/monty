@@ -14,7 +14,7 @@ void S_push(stack_t **stack, unsigned int line_number)
 		return;
 	if (!global_variable.arr[1] || _is_integer(global_variable.arr[1]) == 0)
 	{
-		fprintf(stderr, "L<%u>: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_arr(global_variable.arr);
 		_free_global_variable();
 		exit(EXIT_FAILURE);
@@ -65,7 +65,7 @@ void S_pint(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L<%u>: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		free_arr(global_variable.arr);
 		_free_global_variable();
 		exit(EXIT_FAILURE);
@@ -84,7 +84,7 @@ void S_pop(stack_t **stack, unsigned int line_number)
 
 	if (!stack || *stack == NULL)
 	{
-		fprintf(stderr, "L<%u>: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		free_arr(global_variable.arr);
 		_free_global_variable();
 		exit(EXIT_FAILURE);
