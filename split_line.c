@@ -7,7 +7,7 @@
 */
 char **split_line(char *line)
 {
-	char *copy_line, *word_token, **arr;
+	char *copy_line, *word_token, **argv;
 	const char *delim = " \n";
 	int sz_arr = 0, idx;
 
@@ -21,8 +21,8 @@ char **split_line(char *line)
 	sz_arr++;
 	free(copy_line);
 	copy_line = _strdup(line);
-	arr = malloc(sizeof(char *) * sz_arr);
-	if (!arr)
+	argv = malloc(sizeof(char *) * sz_arr);
+	if (!argv)
 	{
 		free(copy_line);
 		fprintf(stderr, "Error: malloc failed\n");
@@ -31,18 +31,18 @@ char **split_line(char *line)
 	word_token = strtok(copy_line, delim);
 	for (idx = 0; word_token ; idx++)
 	{
-		arr[idx] = malloc(sizeof(char) * (strlen(word_token) + 1));
-		if (!arr[idx])
+		argv[idx] = malloc(sizeof(char) * (strlen(word_token) + 1));
+		if (!argv[idx])
 		{
 			free(copy_line);
-			free_arr(arr);
+			free_arr(argv);
 			fprintf(stderr, "Error: malloc failed\n");
 			exit(EXIT_FAILURE);
 		}
-		strcpy(arr[idx], word_token);
+		strcpy(argv[idx], word_token);
 		word_token = strtok(NULL, delim);
 	}
-	arr[idx] = NULL;
+	argv[idx] = NULL;
 	free(copy_line);
-	return (arr);
+	return (argv);
 }

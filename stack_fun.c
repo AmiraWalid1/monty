@@ -46,7 +46,7 @@ void S_pall(stack_t **stack, __attribute__((unused))unsigned int line_number)
 	curr = *stack;
 	while (curr)
 	{
-		fprintf(stdout,"%d\n", curr->n);
+		fprintf(stdout, "%d\n", curr->n);
 		curr = curr->next;
 	}
 }

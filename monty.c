@@ -19,12 +19,14 @@ int main(int ac, char *av[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+	/*open file*/
 	file_d = fopen(av[1], "r");
 	if (file_d == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
+	/*read line by line from file*/
 	for (line_number = 1; getline(&buff, &length, file_d) != -1 ; line_number++)
 	{
 		arr = split_line(buff);
@@ -32,6 +34,7 @@ int main(int ac, char *av[])
 		free_arr(arr);
 	}
 	free(buff);
+	/*close file*/
 	fclose(file_d);
 	return (0);
 }
