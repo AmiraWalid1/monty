@@ -47,7 +47,7 @@ void S_pall(stack_t **stack, unsigned int line_number)
 
 	(void) line_number;
 	if (!stack || *stack == NULL)
-		exit(EXIT_FAILURE);
+		return;
 	curr = *stack;
 	while (curr != NULL)
 	{
