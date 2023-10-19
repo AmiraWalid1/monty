@@ -36,3 +36,13 @@ void free_stack(stack_t **stack)
 		free(freed_node);
 	}
 }
+/**
+ * _free_global_variable - free buff and stack and close file.
+ * Return: void
+*/
+void _free_global_variable(void)
+{
+	free(global_variable.buff);
+	free_stack(&global_variable.S_top);
+	fclose(global_variable.fd);
+}
