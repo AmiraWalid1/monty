@@ -18,9 +18,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -33,20 +33,25 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern char **arr;
 
 /* monty.c */
 int main(int ac, char *av[]);
-void open_the_file(char *f_name);
+FILE *open_the_file(char *f_name);
 void read_line(FILE *file_d);
 /*split_line.c*/
-char **split_line(char *line );
+char **split_line(char *line);
 /*free.c*/
 void free_arr(char **arr);
 /*str_fun.c*/
 char *_strdup(char *src);
 
+void call_fun(stack_t **S_top, unsigned int line_number);
+void S_push(stack_t **stack, unsigned int line_number);
+void S_pall(stack_t **stack, unsigned int line_number);
+int _is_integer(char *str);
 #endif

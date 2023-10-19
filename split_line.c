@@ -40,11 +40,9 @@ char **split_line(char *line)
 			exit(EXIT_FAILURE);
 		}
 		strcpy(arr[idx], word_token);
-		printf("%s ", arr[idx]);
 		word_token = strtok(NULL, delim);
 	}
 	arr[idx] = NULL;
-	printf("\n");
 	free(copy_line);
 	return (arr);
 }

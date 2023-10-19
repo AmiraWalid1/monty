@@ -20,3 +20,23 @@ char *_strdup(char *src)
 	strcpy(dis, src);
 	return (dis);
 }
+/**
+ * _is_integer - check if str is interger or not.
+ * @str: string
+ * Return: (0)false | (1)True.
+*/
+int _is_integer(char *str)
+{
+	size_t idx;
+
+	for (idx = 0 ; idx < strlen(str) ; idx++)
+	{
+		if (str[idx] < '0' || str[idx] > '9')
+		{
+			if (idx == 0 && str[0] == '-')
+				continue;
+			return (0);
+		}
+	}
+	return (1);
+}
