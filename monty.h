@@ -66,5 +66,7 @@ void S_pint(stack_t **stack, unsigned int line_number);
 int _is_integer(char *str);
 int _is_empty(char *str);
 void swap_the_top(stack_t **stack, unsigned int line_number);
+void S_add(stack_t **stack, unsigned int line_number);
+void S_nop(stack_t **stack, unsigned int line_number);
 
 #endif
