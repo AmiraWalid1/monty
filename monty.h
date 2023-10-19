@@ -55,4 +55,5 @@ void S_push(stack_t **stack, unsigned int line_number);
 void S_pall(stack_t **stack, unsigned int line_number);
 void S_pint(stack_t **stack, unsigned int line_number);
 int _is_integer(char *str);
+int _is_empty(char *str);
 #endif

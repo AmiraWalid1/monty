@@ -29,6 +29,8 @@ int main(int ac, char *av[])
 	/*read line by line from file*/
 	for (line_number = 1; getline(&buff, &length, file_d) != -1 ; line_number++)
 	{
+		if (_is_empty(buff))
+			continue;
 		arr = split_line(buff);
 		call_fun(&S_top, line_number);
 		free_arr(arr);

@@ -29,7 +29,7 @@ char **split_line(char *line)
 		exit(EXIT_FAILURE);
 	}
 	word_token = strtok(copy_line, delim);
-	for (idx = 0; word_token ; idx++)
+	for (idx = 0; idx < 2 && word_token ; idx++)
 	{
 		argv[idx] = malloc(sizeof(char) * (strlen(word_token) + 1));
 		if (!argv[idx])

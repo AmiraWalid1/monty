@@ -40,3 +40,19 @@ int _is_integer(char *str)
 	}
 	return (1);
 }
+/**
+ * _is_empty - check if str is empty or not.
+ * @str: string
+ * Return: (0)false | (1)True.
+*/
+int _is_empty(char *str)
+{
+	size_t idx;
+
+	for (idx = 0 ; idx < strlen(str) - 1 ; idx++)
+	{
+		if (str[idx] != ' ')
+			return (0);
+	}
+	return (1);
+}

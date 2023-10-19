@@ -9,9 +9,9 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 {
 	int sz_list_fun, idx;
 	instruction_t list_fun[] = {
-		{"push", &S_push},
-		{"pall", &S_pall},
-		{"pint", &S_pint}
+		{"push", S_push},
+		{"pall", S_pall},
+		{"pint", S_pint}
 	};
 	sz_list_fun = sizeof(list_fun) / sizeof(list_fun[0]);
 	for (idx = 0 ; idx < sz_list_fun ; idx++)
