@@ -37,7 +37,15 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char **arr;
+typedef struct global_variable_s
+{
+	char *buff;
+	char **arr;
+	stack_t *S_top;
+	FILE *fd;
+}global_variable_t;
+
+extern global_variable_t global_variable;
 
 /* monty.c */
 int main(int ac, char *av[]);

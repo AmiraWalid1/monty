@@ -18,7 +18,7 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 	sz_list_fun = sizeof(list_fun) / sizeof(list_fun[0]);
 	for (idx = 0 ; idx < sz_list_fun ; idx++)
 	{
-		if (strcmp(arr[0], list_fun[idx].opcode) == 0)
+		if (strcmp(global_variable.arr[0], list_fun[idx].opcode) == 0)
 		{
 			list_fun[idx].f(S_top, line_number);
 			return;
