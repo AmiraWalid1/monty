@@ -84,3 +84,31 @@ void S_pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+/**
+ * S_rotl - rotates the stack to the top.
+ * The top element of the stack becomes the last one,
+ * and the second top element of the stack becomes the first one.
+ * @stack: pointer to top node of the stack
+ * @line_number: line number
+ * Return: void
+*/
+void S_rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *curr, *top;
+
+	(void)line_number;
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return;
+	top = *stack;
+	*stack = (*stack)->next;
+	if (*stack)
+		(*stack)->prev = NULL;
+	curr = *stack;
+	while (curr->next != NULL)
+	{
+		curr = curr->next;
+	}
+	curr->next = top;
+	curr->next->prev = curr;
+	curr->next->next = NULL;
+}
