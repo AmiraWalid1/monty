@@ -56,3 +56,31 @@ void S_pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * S_pstr - prints the string starting at the top of the stack,
+ * followed by a new line.
+ * @stack: pointer to top node of the stack
+ * @line_number: line number
+ * Return: void
+*/
+void S_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *curr;
+
+	(void)line_number;
+	if (stack == NULL || *stack == NULL)
+	{
+		printf("\n");
+		return;
+	}
+	curr = *stack;
+	while (curr)
+	{
+		if ((curr->n >= 'a' && curr->n <= 'z') || (curr->n >= 'A' && curr->n <= 'Z'))
+			printf("%c", curr->n);
+		else
+			break;
+		curr = curr->next;
+	}
+	printf("\n");
+}
