@@ -30,7 +30,10 @@ int main(int ac, char *av[])
 	{
 		global_variable.buff = global_variable.buff;
 		if (_is_empty(global_variable.buff))
+		{
+			line_number++;
 			continue;
+		}
 		split_line(global_variable.buff);
 		call_fun(&global_variable.S_top, line_number);
 		free_arr(global_variable.arr);

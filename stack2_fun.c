@@ -61,10 +61,10 @@ void S_sub(stack_t **stack, unsigned int line_number)
 	int sub;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-        {
-                fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-                exit(EXIT_FAILURE);
-        }
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	(*stack) = (*stack)->next;
 	sub = (*stack)->n - (*stack)->prev->n;
 	(*stack)->n = sub;
