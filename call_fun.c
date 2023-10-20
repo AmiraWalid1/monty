@@ -22,7 +22,8 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 		{"mod", S_mod},
 		{"pchar", S_pchar},
 		{"pstr", S_pstr},
-		{"rotl", S_rotl}
+		{"rotl", S_rotl},
+		{"rotr", S_rotr}
 	};
 	sz_list_fun = sizeof(list_fun) / sizeof(list_fun[0]);
 	if (global_variable.arr[0][0] == '#')
