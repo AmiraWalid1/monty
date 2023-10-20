@@ -113,7 +113,7 @@ void S_rotl(stack_t **stack, unsigned int line_number)
 	curr->next->next = NULL;
 }
 /**
- * S_rotl -  rotates the stack to the bottom.
+ * S_rotr - rotates the stack to the bottom.
  * The last element of the stack becomes the top element of the stack.
  * @stack: pointer to top node of the stack
  * @line_number: line number

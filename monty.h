@@ -56,35 +56,37 @@ typedef struct global_variable_s
 
 extern global_variable_t global_variable;
 
-/* monty.c */
+/* monty */
 int main(int ac, char *av[]);
-FILE *open_the_file(char *f_name);
-void read_line(FILE *file_d);
-/*split_line.c*/
+/*split_line*/
 char **split_line(char *line);
-/*free.c*/
+/*free_allocated*/
 void free_arr(char **arr);
 void free_stack(stack_t **stack);
-/*str_fun.c*/
+void _free_global_variable(void);
+/*str_fun*/
 char *_strdup(char *src);
-
+int _is_integer(char *str);
+int _is_empty(char *str);
+/*Call_fun*/
 void call_fun(stack_t **S_top, unsigned int line_number);
+/*stack_fun*/
 void S_push(stack_t **stack, unsigned int line_number);
 void S_pall(stack_t **stack, unsigned int line_number);
 void S_pint(stack_t **stack, unsigned int line_number);
-int _is_integer(char *str);
-int _is_empty(char *str);
-void swap_the_top(stack_t **stack, unsigned int line_number);
-void S_add(stack_t **stack, unsigned int line_number);
-void S_nop(stack_t **stack, unsigned int line_number);
 void S_pop(stack_t **stack, unsigned int line_number);
-void _free_global_variable(void);
-void S_sub(stack_t **stack, unsigned int line_number);
-void S_div(stack_t **stack, unsigned int line_number);
-void S_mul(stack_t **stack, unsigned int line_number);
-void S_mod(stack_t **stack, unsigned int line_number);
+void S_nop(stack_t **stack, unsigned int line_number);
+/*stack2_fun*/
+void swap_the_top(stack_t **stack, unsigned int line_number);
 void S_pchar(stack_t **stack, unsigned int line_number);
 void S_pstr(stack_t **stack, unsigned int line_number);
 void S_rotl(stack_t **stack, unsigned int line_number);
 void S_rotr(stack_t **stack, unsigned int line_number);
+/*stack_operation*/
+void S_add(stack_t **stack, unsigned int line_number);
+void S_sub(stack_t **stack, unsigned int line_number);
+void S_div(stack_t **stack, unsigned int line_number);
+void S_mul(stack_t **stack, unsigned int line_number);
+void S_mod(stack_t **stack, unsigned int line_number);
+
 #endif
