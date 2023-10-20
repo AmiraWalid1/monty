@@ -2,21 +2,35 @@
 project made by:
 - [Nawal Khaled](https://github.com/11121997)
 - [Amira Walid](https://github.com/AmiraWalid1)
+<h2>Supported Operation</h2>
+<h3>Stack Functions (Basic):</h3>
 
-1-we make a main function that open and read from the file
+```
+1. push
+2. pall
+3. pint
+4. pop
+5. nop
 
-2- parse the lines in the file and split it
+```
+<h3>Stack Functions (Adv):</h3>
 
-3- make function that pushes a new node to the top of the stack
+```
+1. swap
+2. pchar
+3. pstr
+4. rotl
+5. rotr
 
-4- make function that print the stack LIFO
+```
 
-5- make function that prints the value at the top of the stack
+<h3>Stack Operations:</h3>
 
-6- make function to remove the top node in the stack
+```
+1. add
+2. sub
+3. div
+4. mul
+5. mod
 
-7- make function to swap the top two elements
-
-8- make function doesn't make anything
-
-9- make function to add and subtract the top two elements
+```
