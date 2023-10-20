@@ -1,15 +1,15 @@
-==9714== Memcheck, a memory error detector
-==9714== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==9714== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==9714== Command: ./monty 00.m
-==9714== Parent PID: 8023
-==9714== 
-==9714== 
-==9714== HEAP SUMMARY:
-==9714==     in use at exit: 0 bytes in 0 blocks
-==9714==   total heap usage: 7 allocs, 7 frees, 4,716 bytes allocated
-==9714== 
-==9714== All heap blocks were freed -- no leaks are possible
-==9714== 
-==9714== For lists of detected and suppressed errors, rerun with: -s
-==9714== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==6122== Memcheck, a memory error detector
+==6122== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==6122== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==6122== Command: ./monty 00.m
+==6122== Parent PID: 3880
+==6122== 
+==6122== 
+==6122== HEAP SUMMARY:
+==6122==     in use at exit: 0 bytes in 0 blocks
+==6122==   total heap usage: 25 allocs, 25 frees, 5,944 bytes allocated
+==6122== 
+==6122== All heap blocks were freed -- no leaks are possible
+==6122== 
+==6122== For lists of detected and suppressed errors, rerun with: -s
+==6122== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
