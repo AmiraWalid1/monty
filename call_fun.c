@@ -19,7 +19,8 @@ void call_fun(stack_t **S_top, unsigned int line_number)
 		{"sub", S_sub},
 		{"div", S_div},
 		{"mul", S_mul},
-		{"mod", S_mod}
+		{"mod", S_mod},
+		{"pchar", S_pchar}
 	};
 	sz_list_fun = sizeof(list_fun) / sizeof(list_fun[0]);
 	if (global_variable.arr[0][0] == '#')

@@ -26,48 +26,33 @@ void swap_the_top(stack_t **stack, unsigned int line_number)
 	curr->prev = NULL;
 	*stack = curr;
 }
-
 /**
- * S_add - function that adds the top two elements of the stack
+ * S_pchar - prints the char at the top of the stack, followed by a new line.
  * @stack: pointer to top node of the stack
  * @line_number: line number
  * Return: void
- */
-void S_add(stack_t **stack, unsigned int line_number)
+*/
+void S_pchar(stack_t **stack, unsigned int line_number)
 {
-	int add;
+	int n_top;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		_free_global_variable();
+		free_arr(global_variable.arr);
 		exit(EXIT_FAILURE);
 	}
-	(*stack) = (*stack)->next;
-	add = (*stack)->n + (*stack)->prev->n;
-	(*stack)->n = add;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
-}
-
-/**
- * S_sub - function that subtracts the top element of the stack
- * from the second top element of the stack
- * @stack: pointer to top node of the stack
- * @line_number: line number
- * Return: void
- */
-void S_sub(stack_t **stack, unsigned int line_number)
-{
-	int sub;
-
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	n_top = (*stack)->n;
+	if ((n_top >= 'a' && n_top <= 'z') || (n_top >= 'A' && n_top <= 'Z'))
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		printf("%c\n", n_top);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		_free_global_variable();
+		free_arr(global_variable.arr);
 		exit(EXIT_FAILURE);
 	}
-	(*stack) = (*stack)->next;
-	sub = (*stack)->n - (*stack)->prev->n;
-	(*stack)->n = sub;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
 }

@@ -1,4 +1,2 @@
-push 1
-push 2
-# push 4
-pall
+push 400
+pchar

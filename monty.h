@@ -83,4 +83,5 @@ void S_sub(stack_t **stack, unsigned int line_number);
 void S_div(stack_t **stack, unsigned int line_number);
 void S_mul(stack_t **stack, unsigned int line_number);
 void S_mod(stack_t **stack, unsigned int line_number);
+void S_pchar(stack_t **stack, unsigned int line_number);
 #endif
