@@ -16,6 +16,8 @@ char **split_line(char *line)
 	while (word_token)
 	{
 		sz_arr++;
+		if (sz_arr == 2)
+			break;
 		word_token = strtok(NULL, delim);
 	}
 	sz_arr++;
