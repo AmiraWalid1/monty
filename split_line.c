@@ -13,11 +13,9 @@ char **split_line(char *line)
 
 	copy_line = _strdup(line);
 	word_token = strtok(copy_line, delim);
-	while (word_token)
+	while (word_token || sz_arr < 2)
 	{
 		sz_arr++;
-		if (sz_arr == 2)
-			break;
 		word_token = strtok(NULL, delim);
 	}
 	sz_arr++;
