@@ -13,7 +13,7 @@ char **split_line(char *line)
 
 	copy_line = _strdup(line);
 	word_token = strtok(copy_line, delim);
-	while (word_token || sz_arr < 2)
+	while (word_token && sz_arr < 2)
 	{
 		sz_arr++;
 		word_token = strtok(NULL, delim);
@@ -30,7 +30,7 @@ char **split_line(char *line)
 		exit(EXIT_FAILURE);
 	}
 	word_token = strtok(copy_line, delim);
-	for (idx = 0; idx < 2 && word_token ; idx++)
+	for (idx = 0; idx < sz_arr - 1 ; idx++)
 	{
 		global_variable.arr[idx] = malloc(sizeof(char) * (strlen(word_token) + 1));
 		if (!global_variable.arr[idx])
